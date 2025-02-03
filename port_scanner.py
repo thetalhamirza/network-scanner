@@ -19,7 +19,7 @@ def ping(host):
         return str(host)
     return None
 
-def ping_sweep(network, netmask):
+def ping_sweep(network, netmask, threads):
     live_hosts = []
 
     # num_threads = os.cpu_count()
@@ -57,7 +57,7 @@ def scan_port(args):
         return port
     return None
 
-def port_scan(ip, ports):
+def port_scan(ip, ports, threads):
     open_ports = []
 
     # num_threads = os.cpu_count()

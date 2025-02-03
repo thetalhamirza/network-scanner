@@ -4,18 +4,19 @@ import os_recon
 
 
 def main():
-    if len(sys.argv) != 3:
-        print("Usage: python netscan.py <subnet> <mask>")
+    if len(sys.argv) != 4:
+        print("Usage: python netscan.py <subnet> <mask> [threads]")
         sys.exit(1)
 
     subnet = sys.argv[1]
     mask = int(sys.argv[2])
+    threads = int(sys.argv[3])
         
-    live_hosts = port_scanner.ping_sweep(subnet, str(mask))
+    live_hosts = port_scanner.ping_sweep(subnet, str(mask), threads)
     print("[>] Ping sweep completed...\n")
 
     for host in live_hosts:
-        open_ports = port_scanner.port_scan(host, list(range(1, 1024)))
+        open_ports = port_scanner.port_scan(host, list(range(1, 1024), threads))
         print(f"Open ports on host {host}: {open_ports}\n")
 
         for port in open_ports:
