@@ -16,7 +16,7 @@ def main():
     print("[>] Ping sweep completed...\n")
 
     for host in live_hosts:
-        open_ports = port_scanner.port_scan(host, list(range(1, 1024), threads))
+        open_ports = port_scanner.port_scan(host, list(range(1, 1024)), threads)
         print(f"Open ports on host {host}: {open_ports}\n")
 
         for port in open_ports:
