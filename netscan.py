@@ -18,7 +18,7 @@ def main():
         open_ports = port_scanner.port_scan(host, list(range(1, 1024)), threads)
         print(f"Open ports on host {host}: {open_ports}\n")
 
-        print("\nScanning ports: ")
+        # print("\nScanning ports: ")
         for port in open_ports:
             host_infos = os_recon.scan_host(host, str(port))
             
