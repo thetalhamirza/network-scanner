@@ -38,6 +38,7 @@ def ping_sweep(network, netmask, threads):
                 if result is not None:
                     print(colored(f"\n\n[>] Host {host} is online.\n", "green"))
                     live_hosts.append(result)
+        print("[>] Ping sweep completed...\n")
         for _ in range(100):
             print(colored("-", "blue"), end="")
         print(colored("\nOnline hosts: ", "green"))
